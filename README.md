@@ -20,6 +20,7 @@ Maintenant, place au cours :fire:
 Je tiens à préciser que ce que je vais dire n'est pas forcément la vérité absolue. 
 Pour moi, ceci va me permettre de m'améliorer et confirmer mes compétences en vuejs tout en transmettant au débutant une explication différente et simplifiée de l'outil qu'est ce Framework Front :relaxed:.
 
+Le cours va se baser sur un projet de TodoList, et oui je sais ce n'est pas super original, mais c'est ce qu'il y a de plus clair et complet pour bien comprendre les sujets tierces
 ****
 ### Force et Faiblesse du Framework
 
@@ -167,17 +168,18 @@ Et voila le tour est joué nous avons notre composant et maintenant nous pouvons
 <script>
 import MonComposant from "./MonComposant.vue"
 
-<script>
+</script>
 
 <style scoped>
 # Rien car MonComposant a sont propres styles
 </style>
 ```
 
-#### <span style="color: #26B260"> Exercices : </span>
-Pas très compliqué ici, j'aimerais que tu me fasses la même représentation de l'exemple de tout à l'heure, c’est-à-dire : 
-- Un Components `Bouton` avec le style que tu veux (je te laisse choisir)
-- Et que celui-ci soit ajouté dans le composants `Header`
+#### <span style="color: #26B260"> Exercices 1: </span>
+Pas très compliqué ici, on va appliquer ce que tu as vu pour la Todolist, c’est-à-dire :
+- Un Components `Todo` qui va contenir un titre de Todo et un bouton de supression (non fonctionnel) avec le style que tu veux (je te laisse choisir)
+- Et que celui-ci soit ajouté dans le composants `HomeView` dans `/src/pages/HomeView.vue`. 
+C'est une Todo LIST donc il en faut plusieurs (logique)
 
-Attention, les composants sont ajoutés à la racine du projet dans un dossier `/components` 
-ensuite, dans ce même dossier, tu es libre de faire ce qui te chante au niveau de l'organisation (tant que c'est claire)
+Attention, les composants sont ajoutés à la racine du projet dans un dossier `/src/components`
+ensuite, dans ce même dossier, tu es libre de faire ce qui te chante au niveau de l'organisation (tant que c'est claire).
