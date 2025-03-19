@@ -66,7 +66,8 @@ Maintenant parlons un peu des faiblesses qui peuvent se ressentir sur le long te
 **Pas Super Scalable**
 
 Pareil ici, ça ne se ressent pas forcément sur des petits projets, mais pour avoir travaillé sur des outils assez grands, effectivement je trouve que c'est galère de se repérer dans le projet.
-Plus concrètement, il manque de cadrage contrairement à un angular qui est plutôt strict, et je trouve que les outils de state management ont une organisation bien plus lisible et compréhensible.
+Plus concrètement, il manque de cadrage contrairement à un angular qui est plutôt strict. 
+De plus je trouve que les outils de state management ont une organisation bien plus lisible et compréhensible.
 ATTENTION, ça ne veut pas dire que Vue n'est pas scalable, je dis juste que c'est moins pratique pour, c'est tout.
 
 Et de toute façon, si les plus grandes entreprises utilisent React ou Angular ce n'est pas pour rien, preuve en est :
@@ -94,7 +95,7 @@ Un composant est un ensemble Code regroupant :
 
 Plutôt simple jusqu'à présent, non ? Mais concrètement, quelle en est l'utilité ?
 
-Celui ci va nous permettre de réutiliser notre logique de partout dans l'application, et de ma centraliser. 
+Celui ci va nous permettre de réutiliser notre logique de partout dans l'application, et de la centraliser. 
 Prenons un exemple :
 
 Imaginons que nous avons un bouton nous permettant de se rediriger vers un formulaire de contact interne à notre site (un CTA en gros)
@@ -116,7 +117,7 @@ en HTML classique cela donnerais :
 }
 ```
 
-Ici c'est sympa, plutôt petit pour un lien de redirection mais bon. ce bouton risque d'être réutilisé fréquament, que se soi dans le Header ou les 20 landings pages du site.
+Ici c'est sympa, plutôt petit pour un lien de redirection. Ce bouton risque d'être réutilisé fréquament, que se soi dans le Header ou les 20 landings pages du site.
 La solutions a tous cela serais ainsi de copié coler le code de partout, ce qui reste en soi une solution. mais quelle problème vienne avec cette désision ?
 
 un cas vaut mieux que 1000 mots, du coup imaginons que ton patron te dise : 
@@ -125,7 +126,7 @@ un cas vaut mieux que 1000 mots, du coup imaginons que ton patron te dise :
 Bon reloux, je vais devoir me retaper le bouton du Header + les 20 landings pages (je te laisse imaginer l'horreur du truc)
 
 Bhe voila rien que là, nous savons pourquoi les composants sont utiles : **La Centralisation du code**.
-Car si j'avais fait un Component à la place de la copier-coller comme un barbare, j'aurais eu juste à changer la variable de la couleur ou le lien du href du component et le tour serait joué, tout aurait changé de partout. 
+Car si j'avais fait un Component à la place de copier-coller comme un barbare, j'aurais eu juste à changer la variable de la couleur ou le lien du href du component et le tour serait joué, tout aurait changé de partout. 
 
 De plus, ce système améliore la lisibilité du code, dans cet exemple le code HTML :
 - Passe de 10 lignes => une ligne d'appel du composant
@@ -145,7 +146,7 @@ et dans cette feuille y ajouter trois partie :
 # Le code HTML 
 </template>
 
-<script>
+<script setup>
 # La partie logique de mon composant
 <script>
 
@@ -154,7 +155,7 @@ et dans cette feuille y ajouter trois partie :
 </style>
 ```
 
-Et voila le tour est joué nous avons notre composant et maintenant nous pouvons l'appeler dans n'import quelle autre composant VueJS :
+Et voila le tour est joué nous avons notre composant et maintenant nous pouvons l'appeler dans n'importe quelle autre composant VueJS :
 
 ```vue
 // Home.vue
@@ -165,7 +166,7 @@ Et voila le tour est joué nous avons notre composant et maintenant nous pouvons
     </div>
 </template>
 
-<script>
+<script setup>
 import MonComposant from "./MonComposant.vue"
 
 </script>
@@ -178,8 +179,174 @@ import MonComposant from "./MonComposant.vue"
 #### <span style="color: #26B260"> Exercices 1: </span>
 Pas très compliqué ici, on va appliquer ce que tu as vu pour la Todolist, c’est-à-dire :
 - Un Components `Todo` qui va contenir un titre de Todo et un bouton de supression (non fonctionnel) avec le style que tu veux (je te laisse choisir)
-- Et que celui-ci soit ajouté dans le composants `HomeView` dans `/src/pages/HomeView.vue`. 
-C'est une Todo LIST donc il en faut plusieurs (logique)
+- Et que celui-ci soit ajouté dans le composants `HomeView` dans `/src/pages/HomeView.vue`.
+- J'aimerais aussi que tu me crées un nouveau composant `InputTodo` qui contient un input et un bouton (il servira à rajouter des todos, mais on verra plus tard).
+- Ce composant sera le frère `Todo` et donc dans le composants `Home.vue`
 
 Attention, les composants sont ajoutés à la racine du projet dans un dossier `/src/components`
 ensuite, dans ce même dossier, tu es libre de faire ce qui te chante au niveau de l'organisation (tant que c'est claire).
+
+#### Les Props
+
+Bon, pour l'instant ce que l'on vient de faire n'a pas trop de sens car une todos list il faut plusieurs todos (ouais logique) et surtout ils ont des titres différents.
+
+Et là l'utilité des props interviennet, car il vont nous permettre de passer des données au Composant en question 
+:warning: Spoiler Alert pour ajouter des titres c'est pratique nan :smirk:
+
+Nan sérieux mais du coup comment on fait ça ? 
+
+```vue
+// MonComposantEnfant
+
+<template>
+    <p> {{ data }} </p> # et on ajoute dans notre paragraphe la string attendu en Props
+                        # On utilise {{ }} pour ajotuer les variables dans le Rendu que se soit Props ou variables classique
+</template>
+
+<script setup lang="ts">
+// Sous format objet, on va mettre tout ce dont on a besoin
+defineProps = <{
+    data: String       # Une type que tu veux ou plusieurs possible
+    dataA?: String          # le ? est utile en TS pour dire comme quoi le props n'est pas obligatoire
+}>()
+</script>
+```
+
+```vue
+// MonComposantParent
+
+<template>
+    <MonComposantEnfant data="salut je suis une information" dataA="Salut je suis l'information pas obligatoire" />
+</template>
+
+<script setup lang="ts">
+import MonComposantEnfant from "./MonComposantEnfant.vue"
+</script>
+```
+
+et voila maintenant je peux utiliser le même component plusieurs fois juste en changeant son titre !
+
+#### Les Loops
+
+Petit truc super sympatique et que tu utiliseras souvent, Les rendu sous forme de Loops. 
+en gros plutot simple mais on va dans ton HTML, Itérer sur une variables (une Array ou plus rare une String)
+
+****
+
+### Le Cycle de vie d'un Composant
+
+Ici, le concept de cycle de vie du composant est assez important à comprendre.
+Il va nous permettre aussi d'exécuter du code en fonction de où on se trouve dans ce cycle
+
+c'est assez technique, donc je laisse la documentation [VueJs](https://fr.vuejs.org/guide/essentials/lifecycle.html) et je ferai une explication à l'oral si besoin.
+
+![image lifecycle vue](/public/lifecycle.png)
+
+Important à retenir, ce sont les hooks qui y sont liés. Dans le schéma ci-dessus, tu peux voir que les carrés avec les contours rouges représentant ces hooks, et il en existe pas mal.
+Je vais te citer celle que tu vas sûrement le plus utiliser mais pareil si tu es curieux : [la doc de toutes les fonctions](https://fr.vuejs.org/api/composition-api-lifecycle.html)
+
+- `onMounted` te permettant d'exécuter du code lorsque le composant est monté dans le DOM
+```vue
+<template>
+</template>
+
+<script setup lang="ts">
+
+onMounted(() => {
+    # Possibilité d'exécuter des appels API, une fonction pour la logique de base du composant, etc...
+})
+</script>
+```
+
+- `onUnmounted` qui lui permet d'exécuter du code lors du démontage du composant, lorsque il se retire du DOM
+```vue
+<template>
+</template>
+
+<script setup lang="ts">
+
+onUnmounted(() => {
+    # Possibilité de clear des timers, des intervalles ou encore reset des données
+})
+</script>
+```
+****
+
+### La Réactivité de Vue
+
+Et oui, un grand point fort des Framework Frontend, c'est la possibilité de changer des données sans avoir besoin de recharger le DOM en entier et ainsi gagner en performance.
+Mais la question est comment ils y arrivent ?
+
+#### Le Virtual DOM 
+
+Et oui, là on va regarder ce que Vuejs a sous le capot histoire de bien comprendre ce qui s'y passe vraiment
+
+Pour commencer, petit rappel de ce qu'est un DOM classique :
+
+C'est une représentation sous forme d'objet du contenu HTML de notre page, celui-ci est stocké en mémoire.
+Si tu as déjà fait du Js, tu as dû l'utiliser.
+```js
+const maDiv = document.querySelector("#id") // renvoi un HTMLELEMENT
+maDiv.style.color = "#ffffff"
+```
+
+plutôt simple comme exemple, mais dans l'idée cette immense objet nous permet de manipuler le HTML avec JavaScript
+
+> Mais du coup le virtual DOM c'est quoi ?
+
+Le VDOM est une représentation du DOM sous forme d'object javascript, ce qui me permet de recontruire une version du DOM dont j'ai le total controlle.
+Plus concret lorsque je crée une balise `div` celle ci seras stoker dans le VDOM sous cette forme : 
+
+```js
+const vnode = {
+  type: 'div',
+  props: {
+    id: 'hello'
+  },
+  children: [
+    /* d'autres vnodes */
+  ]
+}
+```
+
+Alors ici c'est spécifique a Vuejs car React ou encore Anglular vont avoir des format d'object qui peuvent être differents.
+
+Cette object nous permet ensuite de rajouter dans un même élement HTML des informations et implementer des Outils. 
+Dans l'exemple ci dessus on peut voir que un object `props` est assigné a la `vnode` de type `div` et elle nous permet de transmettre des informations a l'élément enfant, ou encore le children qui prendre en compte d'autre `vnode` qui eux même en prenne d'autre ect ... jusqu'a avoir notre représentation sous forme d'object de tout notre HTML
+
+Je donne un exmple en code car je sais que c'est pas super claire dis comme ça haha :
+
+```html
+<div id="app">
+    <h1>Bonjour Vue.js</h1>
+    <p>Ceci est un exemple de VNode.</p>
+    <button onclick="alert('Clique !')">Clique ici</button>
+</div>
+
+```
+
+```js
+const vnode = h(
+  "div",
+  { id: "app" }, // Attributs HTML
+  [
+    h("h1", null, "Bonjour Vue.js"), // Élément titre
+    h("p", null, "Ceci est un exemple de VNode."), // Paragraphe
+    h("button", { onClick: () => alert("Clique !") }, "Clique ici") // Bouton avec event
+  ]
+);
+```
+
+Une fois que le VDOM est généré, lorsque une valeur sera modifiée dans VueJs, alors celui-ci apportera les modifications dans le VDOM et exécutera ce que l'on appelle un "algorithme de réconciliation" qui permettra de comparer le VDOM et le DOM classique et d'appliquer les changements qu'au Components Choisis et à tous ses enfants
+
+![shema vdom et dom](https://blog.theodo.com/_astro/virtual-dom.DhVbe8ms_Z1C1Rzg.webp)
+
+Je pense avoir dit en grande partie comment ça fonctionnait, pour être tout à fait honnête, personnellement il reste des trucs sur lesquels je n'ai rien compris, mais bon, c'est pas si grave car lee but ici été de comprendre l'essentiel
+
+#### La Réactivité dans Vue
+
+Bon, c'est bien rigolo de savoir comment ça fonctionne, mais j'ai un peu envie de Dev donc passons à du concret.
+
+Pour que le VDOM comprenne qu'il y a des changements dans ses données, nous avons besoin de déclarer ce que l'on appelle des références réactives (des variables mêmes si sous le capot c'est plus complexe que ça, mais on verra plus tard)
+
+Comment on fait ? 
