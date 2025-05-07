@@ -340,34 +340,38 @@ onUnmounted(() => {
 
 ➡️ Curieux d’en savoir plus ? Voici [la doc complète des hooks du cycle de vie](https://fr.vuejs.org/api/composition-api-lifecycle.html) 🧠
 
-
-![image lifecycle vue](/public/lifecycle.png)
 ****
 
-### La Réactivité de Vue
+### 🔁 La Réactivité de Vue
 
-Et oui, un grand point fort des Framework Frontend, c'est la possibilité de changer des données sans avoir besoin de recharger le DOM en entier et ainsi gagner en performance.
-Mais la question est comment ils y arrivent ?
+Un des super-pouvoirs des frameworks frontend modernes, c’est ça : pouvoir **changer des données** sans avoir à **recharger toute la page**. Et ça, ça fait plaisir niveau performances 🔥
 
-#### Le Virtual DOM 
+Mais du coup… comment Vue fait ça ? 🕵️‍♂️
 
-Et oui, là on va regarder ce que Vuejs a sous le capot histoire de bien comprendre ce qui s'y passe vraiment
+---
 
-Pour commencer, petit rappel de ce qu'est un DOM classique :
+#### 🧠 Le Virtual DOM
 
-C'est une représentation sous forme d'objet du contenu HTML de notre page, celui-ci est stocké en mémoire.
-Si tu as déjà fait du Js, tu as dû l'utiliser.
+Plongeons un peu sous le capot de Vue.js pour voir ce qui s’y passe vraiment.
+
+Commençons par un petit rappel :
+
+➡️ Le **DOM classique**, c’est une représentation de ta page HTML sous forme d’objet en mémoire.
+
+Exemple en JS :
+
 ```js
-const maDiv = document.querySelector("#id") // renvoi un HTMLELEMENT
+const maDiv = document.querySelector("#id")
 maDiv.style.color = "#ffffff"
 ```
 
-plutôt simple comme exemple, mais dans l'idée cette immense objet nous permet de manipuler le HTML avec JavaScript
+Tu l’as sûrement déjà fait : on sélectionne un élément HTML, on le modifie avec du JS. Basique.
 
-> Mais du coup le virtual DOM c'est quoi ?
+> Mais alors… c’est quoi ce fameux **Virtual DOM** ?
 
-Le VDOM est une représentation du DOM sous forme d'object javascript.
-Plus concret lorsque je crée une balise `div` celle ci seras stoker dans le VDOM sous cette forme : 
+Eh bien, c’est une **copie JavaScript du DOM réel**. Vue crée cette copie pour pouvoir bosser dessus sans toucher directement au vrai DOM (qui est lent à manipuler).
+
+Par exemple, si tu fais une `div`, elle sera stockée dans le VDOM comme ça :
 
 ```js
 const vnode = {
@@ -376,89 +380,189 @@ const vnode = {
     id: 'hello'
   },
   children: [
-    /* d'autres vnodes */
+    // D’autres VNodes ici
   ]
 }
 ```
 
-Alors ici c'est spécifique a Vuejs car React ou encore Angular vont avoir des formats d'object qui peuvent être differents.
+➡️ Ici, c’est la version de Vue, mais React, Angular, etc. ont chacun leur propre façon de faire.
 
-Cette object nous permet ensuite de rajouter dans un même élement HTML des informations et implementer des Outils. 
-Dans l'exemple ci dessus on peut voir que un object `props` est assigné a la `vnode` de type `div` et elle nous permet de transmettre des informations a l'élément enfant.
+Ce système permet aussi de **passer des props**, c’est-à-dire des données, à l’intérieur des éléments, tout en structurant proprement ton appli.
 
-Je donne un exmple en code car je sais que c'est pas super claire dis comme ça haha :
+### 💡 Un petit exemple pour visualiser :
+
+HTML classique :
 
 ```html
 <div id="app">
-    <h1>Bonjour Vue.js</h1>
-    <p>Ceci est un exemple de VNode.</p>
-    <button onclick="alert('Clique !')">Clique ici</button>
+  <h1>Bonjour Vue.js</h1>
+  <p>Ceci est un exemple de VNode.</p>
+  <button onclick="alert('Clique !')">Clique ici</button>
 </div>
-
 ```
+
+En VDOM (version Vue) :
 
 ```js
 const vnode = h(
   "div",
-  { id: "app" }, // Attributs HTML
+  { id: "app" },
   [
-    h("h1", null, "Bonjour Vue.js"), // Élément titre
-    h("p", null, "Ceci est un exemple de VNode."), // Paragraphe
-    h("button", { onClick: () => alert("Clique !") }, "Clique ici") // Bouton avec event
+    h("h1", null, "Bonjour Vue.js"),
+    h("p", null, "Ceci est un exemple de VNode."),
+    h("button", { onClick: () => alert("Clique !") }, "Clique ici")
   ]
-);
+)
 ```
 
-Une fois que le VDOM est généré, lorsque une valeur sera modifiée dans VueJs, alors celui-ci apportera les modifications dans le VDOM et exécutera ce que l'on appelle un "algorithme de réconciliation" qui permettra de comparer le VDOM et le DOM classique et d'appliquer les changements qu'au Components Choisis et à tous ses enfants
+Quand une **valeur change**, Vue ne modifie pas tout le DOM. Il compare le VDOM avec l’ancien, **trouve ce qui a changé**, et applique les modifications **uniquement là où c’est nécessaire**. C’est ce qu’on appelle l’algorithme de **réconciliation** 🤓
 
 ![shema vdom et dom](https://blog.theodo.com/_astro/virtual-dom.DhVbe8ms_Z1C1Rzg.webp)
 
-Je pense avoir dit en grande partie comment ça fonctionnait, pour être tout à fait honnête, personnellement il reste des trucs sur lesquels je n'ai rien compris, mais bon, c'est pas si grave car lee but ici été de comprendre l'essentiel
+Et voilà ! Bon, je t’avoue qu’il y a encore des parties un peu floues pour moi aussi — c’est pas grave tant qu’on a compris le principe essentiel 🧘
 
-#### La Réactivité dans Vue
 
-![mème vue js ref](https://preview.redd.it/saw-this-on-twitter-last-night-v0-extsyxdr8xqa1.png?auto=webp&s=13941a17462810e74589c2aef3e9357c90bd5e6c)
+### 🔁 La Réactivité de Vue
 
-Bon, c'est bien rigolo de savoir comment ça fonctionne, mais j'ai un peu envie de Dev donc passons à du concret.
+Un des super-pouvoirs des frameworks frontend modernes, c’est ça : pouvoir **changer des données** sans avoir à **recharger toute la page**. Et ça, ça fait plaisir niveau performances 🔥
 
-Pour que le VDOM comprenne qu'il y a des changements dans ses données, nous avons besoin de déclarer ce que l'on appelle des références réactives (des variables mêmes si sous le capot c'est plus complexe que ça, mais on verra plus tard)
+Mais du coup… comment Vue fait ça ? 🕵️‍♂️
 
-Comment on fait ?
+---
+
+#### 🧠 Le Virtual DOM
+
+Plongeons un peu sous le capot de Vue.js pour voir ce qui s’y passe vraiment.
+
+Commençons par un petit rappel :
+
+➡️ Le **DOM classique**, c’est une représentation de ta page HTML sous forme d’objet en mémoire.
+
+Exemple en JS :
+
+```js
+const maDiv = document.querySelector("#id")
+maDiv.style.color = "#ffffff"
+```
+
+Tu l’as sûrement déjà fait : on sélectionne un élément HTML, on le modifie avec du JS. Basique.
+
+> Mais alors… c’est quoi ce fameux **Virtual DOM** ?
+
+Eh bien, c’est une **copie JavaScript du DOM réel**. Vue crée cette copie pour pouvoir bosser dessus sans toucher directement au vrai DOM (qui est lent à manipuler).
+
+Par exemple, si tu fais une `div`, elle sera stockée dans le VDOM comme ça :
+
+```js
+const vnode = {
+  type: 'div',
+  props: {
+    id: 'hello'
+  },
+  children: [
+    // D’autres VNodes ici
+  ]
+}
+```
+
+➡️ Ici, c’est la version de Vue, mais React, Angular, etc. ont chacun leur propre façon de faire.
+
+Ce système permet aussi de **passer des props**, c’est-à-dire des données, à l’intérieur des éléments, tout en structurant proprement ton appli.
+
+### 💡 Un petit exemple pour visualiser :
+
+HTML classique :
+
+```html
+<div id="app">
+  <h1>Bonjour Vue.js</h1>
+  <p>Ceci est un exemple de VNode.</p>
+  <button onclick="alert('Clique !')">Clique ici</button>
+</div>
+```
+
+En VDOM (version Vue) :
+
+```js
+const vnode = h(
+  "div",
+  { id: "app" },
+  [
+    h("h1", null, "Bonjour Vue.js"),
+    h("p", null, "Ceci est un exemple de VNode."),
+    h("button", { onClick: () => alert("Clique !") }, "Clique ici")
+  ]
+)
+```
+
+Quand une **valeur change**, Vue ne modifie pas tout le DOM. Il compare le VDOM avec l’ancien, **trouve ce qui a changé**, et applique les modifications **uniquement là où c’est nécessaire**. C’est ce qu’on appelle l’algorithme de **réconciliation** 🤓
+
+![shema vdom et dom](https://blog.theodo.com/_astro/virtual-dom.DhVbe8ms_Z1C1Rzg.webp)
+
+Et voilà ! Bon, je t’avoue qu’il y a encore des parties un peu floues pour moi aussi — c’est pas grave tant qu’on a compris le principe essentiel 🧘
+
+---
+
+#### ⚙️ La Réactivité dans Vue
+
+![mème vue js ref](https://preview.redd.it/saw-this-on-twitter-last-night-v0-extsyxdr8xqa1.png?auto=webp\&s=13941a17462810e74589c2aef3e9357c90bd5e6c)
+
+C’est bien beau de comprendre le VDOM, mais maintenant… on veut coder ! 💻
+
+Pour que Vue détecte qu’une donnée a changé et qu’il doive mettre à jour l’interface, on doit déclarer des **références réactives**.
+
+Et pour ça, on utilise :
+
+* `ref()` pour une simple variable
+* `reactive()` pour un objet
+
+### 📦 Exemple avec `ref()`
 
 ```vue
 <template>
-    <p> {{ maReference }} </p>
+  <p>{{ maReference }}</p>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref } from 'vue'
 
-const maReference = ref<string>("") // entre <> le Type souhaité et entre () la valeur par default
+const maReference = ref<string>("")
+// <> : type de donnée, () : valeur par défaut
 </script>
 ```
 
-Et voilà, ici nous avons une référence qui, lorsqu'elle va subir un changement, va Rerender le Components où il se trouve + ses enfants (revoir le cours sur le VDOM)
+Résultat ? À chaque changement de `maReference`, le composant (et ses enfants) sera automatiquement mis à jour. Merci la réactivité ✨
 
-un autre hook nous est mis à disposition pour les objets (c'est une alternative, elle n'est pas forcément nécessaire pour un objet)
+### 🧱 Exemple avec `reactive()`
 
-```
+```vue
 <template>
-    <p> {{ maReference.data }} </p>
+  <p>{{ maReference.data }}</p>
 </template>
 
 <script setup>
-import { reactive } from "vue"
+import { reactive } from 'vue'
 
 const maReference = reactive({
-    data: "",
-    dataA: ""
-}) 
+  data: '',
+  dataA: ''
+})
 </script>
 ```
-Grossièrement, toutes les variables que tu utilises et où tu sais qu'elles risquent de subir des modifications vont devoir être déclarées sous cette forme.
 
-Nous avons au moins les bases pour instancier la réactivité, mais maintenant nous voulons en faire quelque chose.
+🔎 En résumé :
 
-Ici ont va continuer notre projet, même si tu n'as pas tout les indices je vais te donner les documentations qui vont t'aider pour la suite
+* Si t’as une variable simple ➡️ `ref()`
+* Si t’as un objet ou plusieurs propriétés ➡️ `reactive()`
 
-#### <span style="color: #26B260"> Exercices 4 : </span>
+Dès que tu sais qu’une valeur va changer au fil du temps, **déclare-la en réactif**. C’est la base du fonctionnement de Vue.js.
+
+---
+
+#### 🧪 Exercice 4 :
+
+Maintenant que tu sais comment fonctionne la réactivité, applique-la dans ton projet TodoList !
+
+➡️ Utilise `ref` ou `reactive` pour gérer des données modifiables (genre les todos, les inputs, etc.)
+
+Besoin d’aide ? La doc Vue est là pour toi : [Réactivité Vue 3](https://fr.vuejs.org/guide/essentials/reactivity-fundamentals.html)
