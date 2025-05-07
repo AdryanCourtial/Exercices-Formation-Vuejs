@@ -18,7 +18,8 @@ a {
     color: white;
     cursor: pointer;
     font-weight: 600;
-    transition: 0.5s;
+    font-size: large;
+    transition: 0.3s;
 }
 
 a:hover {

@@ -1,109 +1,130 @@
-# Instalation 
+## 🛠️ # Installation
 
-Bon ici rien de compliqué il faut juste clone le repo : 
+Bon ici, rien de bien sorcier : on commence par cloner le repo, tranquillou :
 
-```
+```bash
 git clone git@github.com:AdryanCourtial/Exercices-Formation-Vuejs.git
 ```
 
-et ensuite installé les dépendances dans le dossier crée a l'instant (plutôt logique jusque là mais je met la commande au cas où :smiley:): 
+Ensuite, on installe les dépendances dans le dossier fraîchement cloné (logique, mais je te balance quand même la commande au cas où 😁) :
 
-```
+```bash
 cd Exercices-Formation-Vuejs
 npm install
 ```
 
-# Cours
+---
 
-Maintenant, place au cours :fire:
+## 📚 # Cours
 
-Je tiens à préciser que ce que je vais dire n'est pas forcément la vérité absolue. 
-Pour moi, ceci va me permettre de m'améliorer et confirmer mes compétences en vuejs tout en transmettant au débutant une explication différente et simplifiée de l'outil qu'est ce Framework Front :relaxed:.
+C’est maintenant que les choses sérieuses commencent ! 🔥
 
-Le cours va se baser sur un projet de TodoList, et oui je sais ce n'est pas super original, mais c'est ce qu'il y a de plus clair et complet pour bien comprendre les sujets tierces
-****
-### Force et Faiblesse du Framework
+Juste une petite précision : ce que je vais t’expliquer ici, ce n’est pas forcément *la vérité absolue*. L’idée, c’est que ça me serve à progresser, à consolider mes skills en Vue.js, et surtout à proposer une approche différente et simplifiée pour les débutants. 😌
 
-Bref, commençons par les forces du framework car c'est ce qui nous motive à l'utiliser (après le salaire bien sûr :smirk:)
+On va bosser sur un projet de **TodoList**. Oui je sais, c’est pas hyper original, mais c’est clair, complet, et parfait pour couvrir tous les concepts de base.
 
-**Plutot rapide à prendre en main**
+---
 
-Effectivement, ici la courbe de difficulté pour le framework est simple et rapide, car celui-ci reste sur des templates basiques utilisant HTML, js et css, ce qui évite de devoir s'accoutumer du format jsx de React qui reste assez bizarre à utiliser les premières fois :dizzy_face:.
+### 💪 Forces et 🪕 Faiblesses du Framework
 
-Ensuite tu le verras plus tard mais les méthodes liés a la réactivité et au rendu sont bien plus simple a prendre en main car plus claire (avis personnel, ça depend du point de vu :wink:).
+Allez, commençons par les bons côtés de Vue.js — c’est ce qui nous donne envie de l’utiliser (bon, avec le salaire aussi, faut pas se mentir 😏).
 
-**Les Performances**
+---
 
-Haaaa... Paçon à un sujet qui fâche, Les Performances :zap:. 
+#### ✅ **Plutôt rapide à prendre en main**
+
+La courbe d’apprentissage est super douce : on reste sur des bases HTML, JS, et CSS — pas besoin de se frotter aux étrangetés du JSX de React (qui, avouons-le, pique un peu les yeux au début 😵‍💫).
+
+Et tu verras, la réactivité et le rendu sont bien plus clairs à appréhender. Enfin, c’est mon avis… ça dépend des goûts ! 😉
+
+---
+
+#### ⚡ **Les Performances**
+
+Aaah, les performances… un terrain glissant ⚡
 
 ![meme Performances](https://cdn-images-1.medium.com/max/725/0*R2CETMgg1344gf0V.jpg)
 
-Bon, pourquoi j'ai peur d'évoquer ce sujet ? Car je n'ai pas assez d'expérience pour en parler. (Effectivement, si on apprend qu'un pauvre 3ème année parle de ça et que je me trompe, on va me ***** dessus :cold_sweat:).
+Bon, je t’avoue : je suis pas expert en perf’. J’ai pas bossé sur des monstres de projets où la micro-optimisation change la face du monde. Donc je vais éviter de trop m’avancer (histoire de pas me faire *démonter* par des seniors 😅).
 
-Bref, je trouve personnellement que les performances du framework sont très bonnes. Il est même meilleur qu'un React (de ce que j'ai pu lire :book:).
-Mais bon, pour ma part je n'ai pas ressenti de différences notables, après je suppose que tant que l'on n'a pas fait de projets de grande envergure, c'est normal :confused:
+Mais perso, je trouve que Vue.js s’en sort très bien ! Voire même mieux que React dans certains cas (merci les benchmarks 📖). En tout cas, sur les projets de taille raisonnable, j’ai pas vu de gros souci.
 
-**La Documentation**
+---
 
-Ce sujet est super important, car il va déterminer si oui ou non tu vas facilement comprendre l'outil en question :beer:, et ce que ce soit pour un Framework de taille internationale, ou encore ta veille feature pouris qui fonctionne mais même toi tu ne comprends pas forcément pourquoi c'est important :sunglasses:
+#### 📘 **La Documentation**
 
-Ici la Doc est Sublime, digne des plus grandes euvres jamais crée, elle ma fait vivre des émotions que je n'avais jamais ressenti auparavent...
+Là, gros kiff. ❤️
 
-Nan sérieux, très belle documentation, bien organisée, simple à comprendre. 
-Si tu as ultra vieux jeux, tu peux même avoir accès à l'exemple de code en `Option API` à la place de la version `Composition`
+La doc Vue.js, c’est pas juste bien : c’est carrément une œuvre d’art. Organisée, claire, agréable à lire… bref, un bijou.
 
-**Leger**
+Et si t’es un vieux de la vieille, tu peux même voir les exemples en `Options API` au lieu de la `Composition API`. C’est beau, la compatibilité.
 
-pas lourd (2.39 MB).
+---
 
-Nan sérieux il n’y a rien d'autre à dire de plus donc je rajoute un même histoire de combler :wink:.
+#### 🪶 **Léger**
+
+Le framework est super léger (2.39 MB). Voilà, c’est dit.
+
+J’ai rien de plus à rajouter, donc bim, un mème pour meubler 😏
 
 ![mème React and vuejs comparaison](https://i.redd.it/mk07crvqg1631.jpg)
 
-Finis pour les forces, j'ai citer les plus connu et les plus importantes mais je supose qu'il en existe plein d'autre donc hésité pas a me faire parvenir l'info si c'est la cas
-Maintenant parlons un peu des faiblesses qui peuvent se ressentir sur le long termes.
+---
 
-**Pas Super Scalable**
+### 🚨 Maintenant les trucs moins glam'...
 
-Pareil ici, ça ne se ressent pas forcément sur des petits projets, mais pour avoir travaillé sur des outils assez grands, effectivement je trouve que c'est galère de se repérer dans le projet.
-Plus concrètement, il manque de cadrage contrairement à un angular qui est plutôt strict. 
-De plus je trouve que les outils de state management ont une organisation bien plus lisible et compréhensible.
-ATTENTION, ça ne veut pas dire que Vue n'est pas scalable, je dis juste que c'est moins pratique pour, c'est tout.
+Faut aussi parler des **faiblesses**. Parce qu’un framework parfait, ça n’existe pas (sinon on l’utiliserait tous sans se poser de questions).
 
-Et de toute façon, si les plus grandes entreprises utilisent React ou Angular ce n'est pas pour rien, preuve en est :
+---
 
-| VueJS  | React | Angular |
-| :---------------: |:---------------:| :-----:|
-| Gitlab, Alibaba, Nintendo  | Instagram, AirBnb, Netflix, Paypal |  Microsoft, Samsung |
+#### 🤭 **Pas super scalable**
 
-Bien sûr, de grands acteurs utilisent VueJS mais bon, bien moins et de toute façon globalement c'est rare qu'une entreprise mondiale n'utilise qu'un outil car tous les outils ont leurs avantages et leurs faiblesses
+Sur les petits projets, no souci. Mais dès que ça grossit un peu... c’est là que ça coince.
 
-**Feuille de code assez lourdes**
+Vue manque de structure imposée (contrairement à Angular qui est une vraie armée bien rangée). Du coup, quand le projet grandit, on peut vite se sentir perdu dans l’organisation du code.
 
-Et oui, c'est bien mignon de tout mettre dans un seul fichier pour rendre tout accessible au même endroit, ce qui est super . Mais lorsque ta feuille fait l'équivalent de 8 kilomètre de hauteur, là, ça devient bien moins drôle.
-On se dit que c'est faisable de séparer le code et les feuilles de style à part ?
-Alors oui, c'est faisable effectivement avec des compasables pour les scripts et des fichiers CSS importés. Mais tout ceci complexifie la chose donc, tant qu'à faire autant passer sur React (c'est mon avis à prendre avec des pincettes bien sûr).
+Et pour le State Management, on peut faire mieux niveau lisibilité — je pense à toi, Vuex 👀
 
-****
+🛑 Attention : je ne dis pas que Vue *n’est pas* scalable, juste que c’est moins pratique pour. Nuance !
 
-### Les Composants 
+Et puis bon, si les gros poissons utilisent React ou Angular, c’est pas pour rien :
 
-Un composant est un ensemble Code regroupant : 
-- Un bloc HTML
-- Ses styles associés (CSS, SCSS)
-- Sa logique de code (JS)
+| VueJS                     | React                              | Angular            |
+| ------------------------- | ---------------------------------- | ------------------ |
+| Gitlab, Alibaba, Nintendo | Instagram, AirBnb, Netflix, Paypal | Microsoft, Samsung |
 
-Plutôt simple jusqu'à présent, non ? Mais concrètement, quelle en est l'utilité ?
+Certes, Vue est utilisé par des gros noms. Mais globalement, c’est plus rare qu’une entreprise ne mise *que* sur Vue.
 
-Celui ci va nous permettre de réutiliser notre logique de partout dans l'application, et de la centraliser. 
-Prenons un exemple :
+---
 
-Imaginons que nous avons un bouton nous permettant de se rediriger vers un formulaire de contact interne à notre site (un CTA en gros)
-en HTML classique cela donnerais :
+#### 🧻 **Feuilles de code un peu lourdes**
+
+C’est mignon de tout mettre dans un seul fichier `.vue`, mais quand ton fichier fait la taille d’une encyclopédie… c’est moins drôle 😅
+
+Oui, on peut splitter le style, la logique et tout le bazar avec des `composables`, des fichiers CSS, etc. Mais bon, à un moment, autant passer sur React (enfin, c’est mon avis, hein — à prendre avec des baguettes 🥢).
+
+---
+
+
+### 🧱 Les Composants
+
+Un composant, c’est un petit bloc autonome qui regroupe :
+
+* Un peu de HTML pour l’affichage
+* Du CSS ou SCSS pour le style
+* Du JS pour la logique
+
+Plutôt simple jusqu’ici, non ? Mais concrètement, **à quoi ça sert ?** 🤔
+
+Eh bien, à **réutiliser** ton code facilement un peu partout dans ton appli, et à tout **centraliser**. Et ça, c’est très, très cool.
+
+### 🧪 Exemple : le bouton CTA
+
+Imaginons qu’on a un joli bouton qui renvoie vers une page de contact. En HTML classique, ça donnerait :
 
 ```html
 <a href="https://www.exemple.com" class="btn">
-    Bonjour, je suis le bouton de redirection vers la page contact
+  Bonjour, je suis le bouton de redirection vers la page contact
 </a>
 ```
 
@@ -117,106 +138,106 @@ en HTML classique cela donnerais :
 }
 ```
 
-Ici c'est sympa, plutôt petit pour un lien de redirection. Ce bouton risque d'être réutilisé fréquament, que se soi dans le Header ou les 20 landings pages du site.
-La solutions a tous cela serais ainsi de copié coler le code de partout, ce qui reste en soi une solution. mais quelle problème vienne avec cette désision ?
+C’est simple et efficace. Mais imagine qu’on doive réutiliser ce bouton dans le header, le footer, et sur 20 pages différentes…
 
-un cas vaut mieux que 1000 mots, du coup imaginons que ton patron te dise : 
-> "Mouais, la couleur du bouton ne me plaît pas trop, et fait attention mais le lien de redirection n'est plus valide car la route a changé"
+Tu pourrais copier-coller le code partout, hein. Mais attention à ce que ça implique.
 
-Bon reloux, je vais devoir me retaper le bouton du Header + les 20 landings pages (je te laisse imaginer l'horreur du truc)
+Ton boss débarque et te dit :
 
-Bhe voila rien que là, nous savons pourquoi les composants sont utiles : **La Centralisation du code**.
-Car si j'avais fait un Component à la place de copier-coller comme un barbare, j'aurais eu juste à changer la variable de la couleur ou le lien du href du component et le tour serait joué, tout aurait changé de partout. 
+> "Mouais… j'aime pas trop le bleu. Et change aussi le lien, c’est plus la bonne URL."
 
-De plus, ce système améliore la lisibilité du code, dans cet exemple le code HTML :
-- Passe de 10 lignes => une ligne d'appel du composant
+Et là, panique. Tu dois tout changer à la main sur toutes les pages ? 😱
+
+➡️ C’est là que les **composants** entrent en scène.
+
+Si tu avais créé un composant pour ce bouton, t’aurais juste eu à modifier **une seule ligne** dans le fichier du component. Et BAM, tout le site se met à jour. Magique.
+
+En bonus, ça rend ton code plus propre :
+
 ```vue
 <Cta />
 ```
-- La logique est séparée et différenciable du code HTML, rendant les feuilles uniques moins lourdes
 
-##### Création d'un composant en VueJS ?
+Une ligne à la place de dix ? On valide. ✅
 
-rien de plus simple on vient créer un fichier `MonComposant.vue`, attention a ce pas oublié l'extenssion `.vue`
-et dans cette feuille y ajouter trois partie : 
+### 🛠️ Créer un composant en VueJS
+
+Facile. Tu crées un fichier `MonComposant.vue` (⚠️ n’oublie pas le `.vue`), et tu y mets trois parties :
+
 ```vue
-// Mon Composants
-
 <template>
-# Le code HTML 
+  <!-- Ton HTML ici -->
 </template>
 
 <script setup>
-# La partie logique de mon composant
-<script>
+// Ta logique ici
+</script>
 
 <style scoped>
-# Le style de mon composant
+/* Ton style ici */
 </style>
 ```
 
-Et voila le tour est joué nous avons notre composant et maintenant nous pouvons l'appeler dans n'importe quelle autre composant VueJS :
+Et voilà, tu peux maintenant l’utiliser dans n’importe quel autre composant !
+
+### 🔄 Exemple d’utilisation dans Home.vue
 
 ```vue
-// Home.vue
-
 <template>
-    <div>
-        <MonComposant />
-    </div>
+  <div>
+    <MonComposant />
+  </div>
 </template>
 
 <script setup>
 import MonComposant from "./MonComposant.vue"
-
 </script>
 
 <style scoped>
-# Rien car MonComposant a sont propres styles
+/* Rien à faire ici, MonComposant a ses propres styles */
 </style>
+
 ```
 
-#### <span style="color: #26B260"> Exercices 1: </span>
-Pas très compliqué ici, on va appliquer ce que tu as vu pour la Todolist, c’est-à-dire :
-- Un Components `Todo` qui va contenir un titre de Todo et un bouton de supression (non fonctionnel) avec le style que tu veux (je te laisse choisir)
-- Et que celui-ci soit ajouté dans le composants `HomeView` dans `/src/pages/HomeView.vue`.
-- J'aimerais aussi que tu me crées un nouveau composant `InputTodo` qui contient un input et un bouton (il servira à rajouter des todos, mais on verra plus tard).
-- Ce composant sera le frère `Todo` et donc dans le composants `Home.vue`
+#### 🧪 Exercice 1 :
 
-Attention, les composants sont ajoutés à la racine du projet dans un dossier `/src/components`
-ensuite, dans ce même dossier, tu es libre de faire ce qui te chante au niveau de l'organisation (tant que c'est claire).
+Pas trop compliqué ici, on applique ce qu’on a vu avec la TodoList :
 
-#### Les Props
+* Crée un composant `Todo` qui contient un titre et un bouton de suppression (pas encore fonctionnel). Le style ? Comme tu veux, fais-toi plaisir ! 🎨
+* Ajoute ce composant dans la vue `HomeView` (fichier : `/src/pages/HomeView.vue`).
+* Crée aussi un composant `InputTodo` avec un input + un bouton. Il servira à rajouter des todos (plus tard).
+* Ce `InputTodo` sera un frère du composant `Todo`, donc lui aussi dans `HomeView`.
 
-Bon, pour l'instant ce que l'on vient de faire n'a pas trop de sens car une todos list il faut plusieurs todos (ouais logique) et surtout ils ont des titres différents.
+🗂️ Tous tes composants doivent aller dans le dossier `/src/components`. Après, niveau organisation interne : fais comme tu veux tant que c’est clair et propre !
 
-Et là l'utilité des props interviennet, car il vont nous permettre de passer des données au Composant en question 
-:warning: Spoiler Alert pour ajouter des titres c'est pratique nan :smirk:
+---
 
-Nan sérieux mais du coup comment on fait ça ? 
+### 📬 Les Props
+
+Bon là, une TodoList avec une seule Todo, c’est pas ouf. Il nous en faut **plusieurs**, et surtout avec des **titres différents**.
+
+➡️ C’est là que les **props** entrent en jeu. Elles nous permettent de **passer des données** à nos composants ! (genre un titre différent pour chaque Todo, pratique non ? 😏)
+
+Mais du coup, comment on fait ?
 
 ```vue
-// MonComposantEnfant
-
+<!-- MonComposantEnfant.vue -->
 <template>
-    <p> {{ data }} </p> # et on ajoute dans notre paragraphe la string attendu en Props
-                        # On utilise {{ }} pour ajotuer les variables dans le Rendu que se soit Props ou variables classique
+  <p>{{ data }}</p>
 </template>
 
 <script setup lang="ts">
-// Sous format objet, on va mettre tout ce dont on a besoin
-defineProps = <{
-    data: String       # Une type que tu veux ou plusieurs possible
-    dataA?: String          # le ? est utile en TS pour dire comme quoi le props n'est pas obligatoire
+const props = defineProps<{
+  data: string        // Donnée principale
+  dataA?: string      // Optionnelle avec le "?"
 }>()
 </script>
 ```
 
 ```vue
-// MonComposantParent
-
+<!-- MonComposantParent.vue -->
 <template>
-    <MonComposantEnfant data="salut je suis une information" dataA="Salut je suis l'information pas obligatoire" />
+  <MonComposantEnfant data="Salut, je suis une info !" dataA="Et moi je suis optionnelle." />
 </template>
 
 <script setup lang="ts">
@@ -224,52 +245,103 @@ import MonComposantEnfant from "./MonComposantEnfant.vue"
 </script>
 ```
 
-et voila maintenant je peux utiliser le même component plusieurs fois juste en changeant son titre !
+Et bim 💥 ! Maintenant, tu peux réutiliser ton composant autant de fois que tu veux, avec des données différentes à chaque appel.
 
-#### Les Loops
+---
 
-Petit truc super sympatique et que tu utiliseras souvent, Les rendu sous forme de Loops. 
-en gros plutot simple mais on va dans ton HTML, Itérer sur une variables (une Array ou plus rare une String)
+#### 🧪 Exercice 2 :
 
-****
+On veut maintenant plusieurs `Todo` avec des titres différents.
+Donc, fais en sorte de passer ces titres en **props** dans chaque composant !
 
-### Le Cycle de vie d'un Composant
+---
 
-Ici, le concept de cycle de vie du composant est assez important à comprendre.
-Il va nous permettre aussi d'exécuter du code en fonction de où on se trouve dans ce cycle
+### 🔁 Les Loops
 
-c'est assez technique, donc je laisse la documentation [VueJs](https://fr.vuejs.org/guide/essentials/lifecycle.html) et je ferai une explication à l'oral si besoin.
+Voici ton nouveau super pouvoir : **v-for** 💫
+
+C’est une directive qui permet de boucler sur un tableau (ou une string, mais c’est plus rare), et de générer des composants ou éléments dynamiquement.
+
+```vue
+<template>
+  <MonComposantEnfant v-for="data in arrayData" :data="data" />
+</template>
+
+<script setup>
+const arrayData = [
+  "Je suis l'information 1",
+  "Je suis l'information 2",
+  "Je suis l'information 3",
+]
+</script>
+```
+
+📝 Remarque : on met bien `:` devant `data` pour indiquer à Vue qu’on lui passe une **variable**, pas une simple string.
+
+Et ce qui est magique, c’est que si un jour tu changes les données de ton tableau, tous tes composants se mettent à jour automatiquement. Merci la réactivité ✨ (on y revient bientôt).
+
+---
+
+#### 🧪 Exercice 3 :
+
+Tu vas afficher plusieurs `Todo`, **mais** sans jamais copier-coller ton composant à la main.
+
+➡️ Tu dois **utiliser une loop `v-for`** pour générer les todos dynamiquement !
+
+---
+
+### ⏳ Le Cycle de vie d'un Composant
+
+Ici, on touche à un sujet très important : le **cycle de vie** d’un composant.
+
+En gros, ça te permet d’exécuter du code à différents moments de la vie d’un composant : quand il est créé, monté, mis à jour, ou détruit. Pratique pour faire des appels API, lancer des timers, ou nettoyer des trucs au bon moment.
+
+C’est un peu technique, donc je te file directement le lien vers la [doc officielle Vue.js](https://fr.vuejs.org/guide/essentials/lifecycle.html). Et si tu veux que je t’explique à l’oral, je suis là 👋
 
 ![image lifecycle vue](/public/lifecycle.png)
 
-Important à retenir, ce sont les hooks qui y sont liés. Dans le schéma ci-dessus, tu peux voir que les carrés avec les contours rouges représentant ces hooks, et il en existe pas mal.
-Je vais te citer celle que tu vas sûrement le plus utiliser mais pareil si tu es curieux : [la doc de toutes les fonctions](https://fr.vuejs.org/api/composition-api-lifecycle.html)
+📌 Ce qu’il faut retenir : les **hooks**. Ce sont ces petites fonctions magiques qui s’exécutent à différents moments du cycle. Dans le schéma ci-dessus, ce sont les encadrés rouges.
 
-- `onMounted` te permettant d'exécuter du code lorsque le composant est monté dans le DOM
+Je t’en présente deux super utiles (tu vas les croiser souvent) 👇
+
+#### 🔹 `onMounted`
+
+S’exécute quand le composant est **monté** dans le DOM. Idéal pour lancer une logique initiale, faire des appels API, etc.
+
 ```vue
 <template>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 
 onMounted(() => {
-    # Possibilité d'exécuter des appels API, une fonction pour la logique de base du composant, etc...
+  // Appel API, init de valeurs, console.log de test... fais-toi plaisir !
 })
 </script>
 ```
 
-- `onUnmounted` qui lui permet d'exécuter du code lors du démontage du composant, lorsque il se retire du DOM
+#### 🔹 `onUnmounted`
+
+S’exécute quand le composant est **retiré** du DOM. Parfait pour nettoyer ce que tu as lancé avec `onMounted` (timers, intervals, etc.).
+
 ```vue
 <template>
 </template>
 
 <script setup lang="ts">
+import { onUnmounted } from 'vue'
 
 onUnmounted(() => {
-    # Possibilité de clear des timers, des intervalles ou encore reset des données
+  // Nettoyage en règle : clearInterval, reset de données, etc.
 })
 </script>
 ```
+
+➡️ Curieux d’en savoir plus ? Voici [la doc complète des hooks du cycle de vie](https://fr.vuejs.org/api/composition-api-lifecycle.html) 🧠
+
+
+![image lifecycle vue](/public/lifecycle.png)
 ****
 
 ### La Réactivité de Vue
@@ -294,7 +366,7 @@ plutôt simple comme exemple, mais dans l'idée cette immense objet nous permet 
 
 > Mais du coup le virtual DOM c'est quoi ?
 
-Le VDOM est une représentation du DOM sous forme d'object javascript, ce qui me permet de recontruire une version du DOM dont j'ai le total controlle.
+Le VDOM est une représentation du DOM sous forme d'object javascript.
 Plus concret lorsque je crée une balise `div` celle ci seras stoker dans le VDOM sous cette forme : 
 
 ```js
@@ -309,10 +381,10 @@ const vnode = {
 }
 ```
 
-Alors ici c'est spécifique a Vuejs car React ou encore Anglular vont avoir des format d'object qui peuvent être differents.
+Alors ici c'est spécifique a Vuejs car React ou encore Angular vont avoir des formats d'object qui peuvent être differents.
 
 Cette object nous permet ensuite de rajouter dans un même élement HTML des informations et implementer des Outils. 
-Dans l'exemple ci dessus on peut voir que un object `props` est assigné a la `vnode` de type `div` et elle nous permet de transmettre des informations a l'élément enfant, ou encore le children qui prendre en compte d'autre `vnode` qui eux même en prenne d'autre ect ... jusqu'a avoir notre représentation sous forme d'object de tout notre HTML
+Dans l'exemple ci dessus on peut voir que un object `props` est assigné a la `vnode` de type `div` et elle nous permet de transmettre des informations a l'élément enfant.
 
 Je donne un exmple en code car je sais que c'est pas super claire dis comme ça haha :
 
@@ -345,8 +417,48 @@ Je pense avoir dit en grande partie comment ça fonctionnait, pour être tout à
 
 #### La Réactivité dans Vue
 
+![mème vue js ref](https://preview.redd.it/saw-this-on-twitter-last-night-v0-extsyxdr8xqa1.png?auto=webp&s=13941a17462810e74589c2aef3e9357c90bd5e6c)
+
 Bon, c'est bien rigolo de savoir comment ça fonctionne, mais j'ai un peu envie de Dev donc passons à du concret.
 
 Pour que le VDOM comprenne qu'il y a des changements dans ses données, nous avons besoin de déclarer ce que l'on appelle des références réactives (des variables mêmes si sous le capot c'est plus complexe que ça, mais on verra plus tard)
 
-Comment on fait ? 
+Comment on fait ?
+
+```vue
+<template>
+    <p> {{ maReference }} </p>
+</template>
+
+<script setup>
+import { ref } from "vue"
+
+const maReference = ref<string>("") // entre <> le Type souhaité et entre () la valeur par default
+</script>
+```
+
+Et voilà, ici nous avons une référence qui, lorsqu'elle va subir un changement, va Rerender le Components où il se trouve + ses enfants (revoir le cours sur le VDOM)
+
+un autre hook nous est mis à disposition pour les objets (c'est une alternative, elle n'est pas forcément nécessaire pour un objet)
+
+```
+<template>
+    <p> {{ maReference.data }} </p>
+</template>
+
+<script setup>
+import { reactive } from "vue"
+
+const maReference = reactive({
+    data: "",
+    dataA: ""
+}) 
+</script>
+```
+Grossièrement, toutes les variables que tu utilises et où tu sais qu'elles risquent de subir des modifications vont devoir être déclarées sous cette forme.
+
+Nous avons au moins les bases pour instancier la réactivité, mais maintenant nous voulons en faire quelque chose.
+
+Ici ont va continuer notre projet, même si tu n'as pas tout les indices je vais te donner les documentations qui vont t'aider pour la suite
+
+#### <span style="color: #26B260"> Exercices 4 : </span>
